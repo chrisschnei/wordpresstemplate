@@ -4,6 +4,37 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+.blur {
+  -webkit-animation: blur 0.5s linear forwards;
+  -moz-animation: blur 0.5s linear forwards;
+  -ms-animation: blur 0.5s linear forwards;
+  -o-animation: blur 0.5s linear forwards;
+  animation: blur 0.5s linear forwards;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+}
+@-webkit-keyframes blur {
+  to {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+  }
+}
+@-moz-keyframes blur {
+  to {
+    -moz-filter: blur(0px);
+    filter: blur(0px);
+  }
+}
+@keyframes blur {
+  to {
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    filter: blur(0px);
+  }
+}
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;

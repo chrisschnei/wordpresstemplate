@@ -57,12 +57,12 @@
       $month = date('n');
       if($month >=12 || $month <= 2) {
         $backgroundimage = esc_url(get_theme_mod("theme_frontpageimagewinterdezfeb"));
-        print('<div style="background-image:url(\''.$backgroundimage.'\')" class="frontpageimage"></div>');
+        print('<div style="background-image:url(\''.$backgroundimage.'\'); filter: blur(5px); -webkit-filter: blur(5px);" class="frontpageimage blur animated fadeIn"></div>');
       } else if ($month <= 5 || $month >= 10) {
         $backgroundimage = esc_url(get_theme_mod("theme_frontpageimagewinter"));
-        print('<div style="background-image:url(\''.$backgroundimage.'\')" class="frontpageimage"></div>');
+        print('<div style="background-image:url(\''.$backgroundimage.'\'); filter: blur(5px); -webkit-filter: blur(5px);" class="frontpageimage blur animated fadeIn"></div>');
       } else {
         $backgroundimage = esc_url(get_theme_mod("theme_frontpageimage"));
-        print('<div style="background-image:url(\''.$backgroundimage.'\')" class="frontpageimage"></div>');
+        print('<div style="background-image:url(\''.$backgroundimage.'\'); filter: blur(5px); -webkit-filter: blur(5px);" class="frontpageimage blur animated fadeIn"></div>');
       }
     } ?>
