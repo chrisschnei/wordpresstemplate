@@ -31,19 +31,23 @@
            'after' => date('Y-m-d', strtotime('- 1 days'))
            )
       );
-      $postsbymonth = get_posts($args); 
-      usort($postsbymonth, 'date_compare');
-      foreach($postsbymonth as $post) {
-        $pageslink = get_the_category($post->ID)[0]->slug;
-        $categorytitle = get_the_category($post->ID)[0]->name;
-        echo "<p>";
-        if($categorytitle == "Treffen für alle") {
-          echo '<a href="'.get_site_url()."/".$pageslink.'" style="color:black">'.$post->post_title.' - '.$categorytitle.'</a>';
-        } else {
-          echo '<a href="'.get_site_url()."/".$pageslink.'">'.$post->post_title.' - '.$categorytitle.'</a>';
-        }
-        echo "</p>";
+      $postsbymonth = get_posts($args);
+      echo "<p>";
+      if (sizeof($postsbymonth) == 0) {
+         echo "Zur Zeit sind keine Termine geplant.";
+      } else {
+         usort($postsbymonth, 'date_compare');
+         foreach($postsbymonth as $post) {
+           $pageslink = get_the_category($post->ID)[0]->slug;
+           $categorytitle = get_the_category($post->ID)[0]->name;
+           if($categorytitle == "Treffen für alle") {
+             echo '<a href="'.get_site_url()."/".$pageslink.'" style="color:black">'.$post->post_title.' - '.$categorytitle.'</a>';
+           } else {
+             echo '<a href="'.get_site_url()."/".$pageslink.'">'.$post->post_title.' - '.$categorytitle.'</a>';
+           }
+         }
       }
+      echo "</p>";
     ?>
   </div>
   </div>
