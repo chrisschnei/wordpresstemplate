@@ -42,7 +42,6 @@ html {
 }
 body {
   margin: 0;
-  padding-top: 70px;
 }
 article,
 aside,
@@ -93,6 +92,11 @@ sup {
 }
 sub {
   bottom: -.25em;
+}
+div.wp-block-group > div > p > a > img {
+  border: 0;
+  height: 100%;
+  max-width:100%;
 }
 img {
   border: 0;
@@ -171,12 +175,48 @@ pre {
     border: 1px solid #ddd !important;
   }
 }
-@font-face {
-  font-family: 'Glyphicons Halflings';
 
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+@font-face {
+    font-family: 'Gothic-BookOblique'; 
+    src: url("../fonts/gothic-bookoblique.otf") format("opentype");
+    font-style: normal;
 }
+@font-face {
+    font-family: 'Gothic-Book'; 
+    src: url("../fonts/gothic-book.otf") format("opentype");
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gothic-DemiOblique'; 
+    src: url("../fonts/gothic-demioblique.otf") format("opentype");
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gothic-Demi'; 
+    src: url("../fonts/gothic-demi.otf") format("opentype");
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Palladio-BoldItalic'; 
+    src: url("../fonts/palladio-bolditalic.otf") format("opentype");
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Palladio-Bold'; 
+    src: url("../fonts/palladio-bold.otf") format("opentype");
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Palladio-Italic'; 
+    src: url("../fonts/palladio-italic.otf") format("opentype");
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Palladio-Roman'; 
+    src: url("../fonts/palladio-roman.otf") format("opentype");
+    font-style: normal;
+}
+
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -194,12 +234,17 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-family: Gothic-Book, Arial, sans-serif;
+  font-size: 15px;
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
 }
+
+.sitetitle {
+  font-family: Palladio-Bold;
+}
+
 input,
 button,
 select,
@@ -224,6 +269,16 @@ a:focus {
 }
 figure {
   margin: 0;
+}
+div.jumbotron-right-group > p > a.verantwortlicher > img {
+  width: auto;
+  vertical-align: middle;
+}
+figure.verantwortlicher > img {
+  height: auto;
+}
+div.verantwortlicher > figure > img {
+  height: auto;
 }
 div.jumbotron-right-group > p > a > img {
   width:100%;
@@ -365,6 +420,9 @@ h3,
 .h3 {
   font-size: 24px;
 }
+h3.sitetitle {
+  font-size: 30px;
+}
 h4,
 .h4 {
   font-size: 18px;
@@ -410,7 +468,6 @@ p {
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
-    margin-top: 8px;
   }
 }
 .container-fluid {
@@ -485,7 +542,6 @@ p {
 }
 .navbar {
   position: relative;
-  min-height: 110px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -613,7 +669,6 @@ p {
   }
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
-    /*margin-left: -15px;*/
   }
 }
 .navbar-toggle {
@@ -786,6 +841,10 @@ p {
     width: 100%;
     height: 100%;
   }
+  .rightsidebar {
+    float:left;
+    width: 100%;
+  }
 }
 @media (min-width: 768px) {
   .navbar-form {
@@ -850,6 +909,7 @@ p {
   background-color: white;
   border-color: #e7e7e7;
   margin-bottom: 0px;
+  position: relative;
 }
 .navbar-default .navbar-brand {
   color: #777;
@@ -894,8 +954,6 @@ p {
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  /*border-color: #e7e7e7;*/
-  /*margin-top:10px;*/
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
@@ -990,17 +1048,21 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   .container .jumbotron-right,
   .container-fluid .jumbotron {
     padding-right: 30px;
-    padding-left: 30px;
-    width: 800px;
+    width: 60%;
     float: left;
+  }
+  .jumbotron-right-group {
+    margin-top: 30px;
   }
   .container .jumbotron-right-group,
   .container-fluid .jumbotron {
     padding-right: 30px;
     padding-left: 30px;
-    width: 800px;
     float: left;
-    margin-top: 30px;
+    width: 60%;
+  }
+  .jumbotron-right-group-title {
+    padding-left: 30px;
   }
   .jumbotron h1,
   .jumbotron .h1 {
@@ -1072,13 +1134,21 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 /*Own CSS*/
 @media (min-width: 768px) {
   div #angebotsblock {
-          width: 260px;
-          background-color:#e8e8e8;
-          margin-right:10px;
-          padding-left:13px;
-          margin-bottom: 10px;
-          float: left;
-          padding-top:5px;
+	margin: auto;
+	width: 32%;
+	background-color:#e8e8e8;
+	margin-right:5px;
+	padding-left:13px;
+	padding-right:13px;
+	margin-bottom: 5px;
+	float: left;
+	padding-top:5px;
+  }
+	
+  .rightsidebar {
+	float: left;
+	padding-right: 30px;
+	width: 40%;
   }
 }
 
@@ -1093,12 +1163,20 @@ fieldset[disabled] .navbar-default .btn-link:focus {
         margin: auto;
         margin-bottom: 10px;
   }
+	
+  .rightsidebar {
+      float:left;
+      width: 100%;
+  }
 }
 
 div .angebottitle {
         font-weight: bold;
         margin-top: 8px;
         margin-bottom: 8px;
+	display: table-cell;
+	height: 50px;
+	vertical-align: middle;
 }
 
 a:hover {
@@ -1110,7 +1188,6 @@ a:hover {
 -moz-background-clip:border;
 -moz-background-inline-policy:continuous;
 -moz-background-origin:padding;
-/*background-color:#60625C;*/
 bottom:0;
 left:0;
 float:right;
@@ -1136,15 +1213,15 @@ width:100%;
       background-attachment: fixed;
       background-position: left 80px;
       background-repeat: no-repeat;
-      padding-bottom: 120px;
+      padding-bottom: 30%;
     }
 
     .sitetitle {
         background-color: #b4017b;
-        padding-top: 10px;
+        padding-top: 20px;
         padding-bottom: 10px;
         color: white;
-        margin-top: 4%;
+  	margin-top: 0px;
     }
 
     iframe {
@@ -1159,16 +1236,17 @@ width:100%;
         -moz-background-size: contain;
         -o-background-size: contain;
         background-attachment: fixed;
-        background-position: left 110px;
+        background-position: left 101px;
         background-repeat: no-repeat;
-        padding-bottom: 380px;
+        padding-bottom: 30%;
     }
 
     .sitetitle {
         background-color: #b4017b;
         padding-bottom: 30px;
         color: white;
-        margin-top: 3%;
+	padding-top: 30px;
+  	margin-top: 0px;
     }
     iframe {
         height:200px;
@@ -1184,14 +1262,15 @@ width:100%;
         background-attachment: fixed;
         background-position: left 110px;
         background-repeat: no-repeat;
-        padding-bottom: 380px;
+        padding-bottom: 30%;
     }
 
     .sitetitle {
         background-color: #b4017b;
-        margin-top: 41px;
         padding-bottom: 30px;
+        padding-top: 30px;
         color: white;
+  	margin-top: 0px;
     }
     iframe {
         height:200px;
@@ -1208,13 +1287,15 @@ width:100%;
         background-attachment: fixed;
         background-position: left 110px;
         background-repeat: no-repeat;
-        padding-bottom: 540px;
+        padding-bottom: 30%;
     }
 
     .sitetitle {
         background-color: #b4017b;
         padding-bottom: 30px;
         color: white;
+	padding-top: 30px;
+  	margin-top: 0px;
     }
     iframe {
         height:200px;
@@ -1231,7 +1312,7 @@ width:100%;
         background-attachment: fixed;
         background-position: left 110px;
         background-repeat: no-repeat;
-        padding-bottom: 720px;
+        padding-bottom: 30%;
     }
 }
 
@@ -1243,14 +1324,8 @@ width:100%;
         background-attachment: fixed;
         background-position: left 110px;
         background-repeat: no-repeat;
-        padding-bottom: 1040px;
+        padding-bottom: 30%;
     }
-}
-
-.rightsidebar {
-    float:left;
-    width:300px;
-    padding-bottom: 48px;
 }
 
 .footer {

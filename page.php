@@ -45,6 +45,7 @@
            } else {
              echo '<a href="'.get_site_url()."/".$pageslink.'">'.$post->post_title.' - '.$categorytitle.'</a>';
            }
+           echo '<br>';
          }
       }
       echo "</p>";

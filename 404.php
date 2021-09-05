@@ -12,7 +12,7 @@
 <?php get_header(); ?>
 
   <div class="container">
-    <div class="jumbotron-right">
+    <div class="jumbotron">
 	<a HREF="javascript:goBack()"><h3>Zurück zur vorherigen Seite.</h3></a>
     </div>
   </div>

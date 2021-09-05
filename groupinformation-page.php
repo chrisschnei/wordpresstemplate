@@ -33,14 +33,13 @@
       );  
       $posts_array = get_posts( $args );
       if(count($posts_array) == 0) {
-          echo "Bisher wurden keine Termine eingetragen.";
+          echo "Es sind keine Termine geplant.";
       } else {
         include_once('inc/sortposts_helper.php');
         usort($posts_array, 'date_compare');
         foreach($posts_array as $singlepost) {
           echo "<p>";
-          $categorytitle = get_the_category($post->ID)[0]->name;
-          echo "<h4>".$singlepost->post_title." - ".$categorytitle."</h4>";
+          echo "<h4>".$singlepost->post_title."</h4>";
           echo wpautop($singlepost->post_content);
           echo "</p>";
         }
