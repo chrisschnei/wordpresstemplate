@@ -20,7 +20,8 @@
     </div>
       <div class="rightsidebar">
       <h3>Termine</h3>
-    <?php 
+    <?php
+      setlocale(LC_TIME, "de_DE.UTF-8"); 
       $args = array(
         'category'         => get_the_category()[0]->cat_ID,
         'post_type'        => 'post',
@@ -38,8 +39,13 @@
         include_once('inc/sortposts_helper.php');
         usort($posts_array, 'date_compare');
         foreach($posts_array as $singlepost) {
+          $date = date_create($singlepost->post_date);
+          $formattedDay = date_format($date, "d");
+          $formattedMonth = date_format($date, "m");
+          $formattedYear = date_format($date, "Y");
+          $day = strftime('%a', mktime(0, 0, 0, $formattedMonth, $formattedDay, $formattedYear));
           echo "<p>";
-          echo "<h4>".$singlepost->post_title."</h4>";
+          echo "<h4>".$day.', '.$formattedDay.'.'.$formattedMonth.'.'.$formattedYear."</h4>";
           echo wpautop($singlepost->post_content);
           echo "</p>";
         }
